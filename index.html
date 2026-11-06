@@ -146,4 +146,4 @@ $('seasonSelect').onchange=()=>{archive.selected=$('seasonSelect').value;db=arch
 $('newSeason').onclick=()=>{const suggested=String(Math.max(2026,...Object.keys(archive.seasons).map(Number).filter(Number.isFinite))+1);const value=prompt('Bezeichnung der neuen Saison (z. B. 2027):',suggested);if(value===null)return;const label=value.trim();if(!/^[a-zA-Z0-9äöüÄÖÜ _-]{1,32}$/.test(label)){alert('Bitte eine kurze Saisonbezeichnung ohne Sonderzeichen verwenden.');return}if(archive.seasons[label]){alert('Diese Saison existiert bereits. Bitte oben auswählen.');return}archive.seasons[label]={days:{}};archive.selected=label;db=archive.seasons[label];current=1;$('day').value='1';save();render()};
 const originalRender=render;render=function(){updateSeasonSelect();originalRender()};
 render();applyTab();
-</script></body></html>
+</script></body></html> 
